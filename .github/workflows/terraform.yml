@@ -1,7 +1,17 @@
 name: Terraform CI/CD
 
 on:
-  workflow_dispatch:  # Manual trigger from GitHub UI
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Terraform action to perform'
+        required: true
+        default: 'apply'
+        type: choice
+        options:
+          - apply
+          - destroy
+
   push:
     branches:
       - main
@@ -11,7 +21,7 @@ permissions:
 
 jobs:
   terraform:
-    name: Terraform Deployment
+    name: Terraform ${{ github.event.inputs.action || 'apply' }}
     runs-on: ubuntu-latest
     env:
       AWS_REGION: us-east-1  # Change if needed
@@ -23,7 +33,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.5.0  # Modify if using a different version
+          terraform_version: 1.5.0
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -42,8 +52,13 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
+        if: ${{ github.event.inputs.action != 'destroy' }}
         run: terraform plan -out=tfplan
 
-      - name: Terraform Apply (main branch only)
-        if: github.ref == 'refs/heads/main'
+      - name: Terraform Apply
+        if: ${{ github.event.inputs.action == 'apply' }}
         run: terraform apply -auto-approve tfplan
+
+      - name: Terraform Destroy
+        if: ${{ github.event.inputs.action == 'destroy' }}
+        run: terraform destroy -auto-approve
