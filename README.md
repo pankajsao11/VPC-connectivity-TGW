@@ -58,6 +58,10 @@ EC2 Instances: One EC2 instance in each private subnet and one in the public sub
 ### Transit Gateway:
 Transit Gateway: AWS Transit Gateway is a powerful networking service that provides a hub and spoke design which simplifies the management and connectivity of multiple Amazon Virtual Private Clouds (VPCs) and on-premises networks. Centralized Hub: It acts as a cloud router, allowing you to connect multiple VPCs and on-premises networks through a single gateway. Transit Gateway eliminates the need for complex peering relationships between VPCs, reducing operational overhead.
 
+#Transit Gateway Route Table Association: A transit gateway route table association is the process of linking a transit gateway attachment to a specific route table within a transit gateway. Associations determine which route table is used to make routing decisions for traffic coming from a particular attachment.
+
+#Transit Gateway Route Table Propagtion: Transit Gateway Route Table Propagation is a feature that allows routes from attached resources (like VPCs or VPN connections) to be automatically added to a Transit Gateway route table. Route propagation simplifies network management by automatically populating route tables with the CIDR blocks of attached resources.
+
 https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/transit-gateway.html
 
 ![tgw](https://github.com/user-attachments/assets/10c8e884-3559-4b5f-8f81-f3ec8ee1e475)
