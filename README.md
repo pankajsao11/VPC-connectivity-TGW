@@ -41,7 +41,8 @@ Network ACLs (NACLs):
 ### NACL:
 Network Access Control Lists (NACLs) are an important security feature in Amazon VPC that provide subnet-level traffic control. NACLs act as a firewall for controlling traffic in and out of one or more subnets within your VPC.
 
-https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.htmlNACLs for subnets, allowing necessary inbound and outbound traffic.
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html
+NACLs for subnets, allowing necessary inbound and outbound traffic.
 
 ![vpc](https://github.com/user-attachments/assets/27ca839c-25f8-46eb-974e-050c9fa47580)
 
