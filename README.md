@@ -31,6 +31,8 @@ An Internet Gateway is a crucial component of Amazon Virtual Private Cloud (VPC)
 
 https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html 
 
+<img width="851" height="296" alt="image" src="https://github.com/user-attachments/assets/4b44739b-2a78-445f-be6a-afd62656a531" />
+
 ### Security Groups:
 A security group in Amazon VPC acts as a virtual firewall that controls inbound and outbound traffic for AWS resources such as EC2 instances. control traffic at the instance level, allowing you to specify which protocols, ports, and IP ranges can communicate with your resources.
 
